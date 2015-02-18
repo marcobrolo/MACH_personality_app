@@ -21,7 +21,7 @@ namespace MachTest5
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class Page2 : Page
+    public sealed partial class Page4 : Page
     {
 
         private NavigationHelper navigationHelper;
@@ -45,10 +45,9 @@ namespace MachTest5
         }
 
 
-        public Page2()
+        public Page4()
         {
             this.InitializeComponent();
-
             this.NavigationCacheMode =
         Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             this.navigationHelper = new NavigationHelper(this);
@@ -83,6 +82,11 @@ namespace MachTest5
         {
         }
 
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Page5));
+        }
+
         #region NavigationHelper registration
 
         /// The methods provided in this section are simply used to allow
@@ -105,10 +109,5 @@ namespace MachTest5
         }
 
         #endregion
-
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Page3));
-        }
     }
 }
