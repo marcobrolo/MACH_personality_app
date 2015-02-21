@@ -6,28 +6,145 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Background="Black">
-    <ListView Background="#FF1D1D1D" SelectionMode="None" Margin="100,100,0,0">
-        <ListView.ItemsPanel>
-            <ItemsPanelTemplate>
-                <WrapGrid Orientation="Horizontal"/>
-            </ItemsPanelTemplate>
-        </ListView.ItemsPanel>
-        <TextBlock TextWrapping="Wrap" Text="Most people are honest." FontSize="48" Margin="0" Width="300" Height="250"/>
-        <StackPanel Width="300" Height="250">
-            <RadioButton Content="Agree" Height="90" FontSize="30" Margin="0,0,-209,0"/>
-            <RadioButton Content="Disagree" Height="90" FontSize="30" Margin="0,0,-209,0"/>
-            <RadioButton Content="Undecided" Height="90" FontSize="30" Margin="0,0,-209,0"/>
+    <Page.Resources>
+        <Style x:Key="RadioButtonStyle1" TargetType="RadioButton">
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{ThemeResource RadioButtonContentForegroundThemeBrush}"/>
+            <Setter Property="Padding" Value="1,4,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BackgroundEllipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Orange"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="BackgroundEllipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Orange"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Gray"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BackgroundEllipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonPressedBackgroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="BackgroundEllipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonPressedBorderThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonPressedForegroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BackgroundEllipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonDisabledBackgroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="BackgroundEllipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonDisabledBorderThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonDisabledForegroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonContentDisabledForegroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckGlyph"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked"/>
+                                    <VisualState x:Name="Indeterminate"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="29*"/>
+                                    <ColumnDefinition Width="478*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid VerticalAlignment="Top">
+                                    <Ellipse x:Name="BackgroundEllipse" Margin="0,11,0,0" Height="23" Stroke="Gray" StrokeThickness="2" UseLayoutRounding="False" Width="23" />
+                                    <Ellipse x:Name="CheckGlyph" Margin="0,11,0,0" Fill="Orange" Height="13" Opacity="0" UseLayoutRounding="False" Width="13"/>
+                                    <Rectangle x:Name="FocusVisualWhite" Margin="0,11,0,0" Height="29" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="Orange" StrokeDashArray="1,1" Width="29"/>
+                                    <Rectangle x:Name="FocusVisualBlack" Margin="0,11,0,0" Height="29" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="Orange" StrokeDashArray="1,1" Width="29"/>
+                                </Grid>
+                                <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+
+    <Grid HorizontalAlignment="Stretch" Background="#FF1D1D1D"  Margin="0,100,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="177*"></ColumnDefinition>
+            <ColumnDefinition Width="1189*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Margin="0,0,0,0" Background="White" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False">
+            <ListView Height="666">
+                <TextBlock x:Name="QuestionBox" TextWrapping="Wrap" TextAlignment="Center" Text="Most people are honest." FontSize="48" Margin="0" Width="1182" Height="250" Foreground="Black" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False"/>
+                <StackPanel Margin="450,0,0,0" Width="300" Height="250" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False">
+                    <RadioButton x:Name="AgreeButton" Click="AgreeClick" Content="Agree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
+                    <RadioButton x:Name="DisagreeButton" Click="DisagreeClick" Content="Disagree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
+                    <RadioButton x:Name="UndecidedButton" Click="UndecidedClick" Content="Undecided" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
+                </StackPanel>
+                <Button x:Name="NextQuestionButton" Margin="400,0,0,0" Content="Next Question" Click="NextQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D"/>
+            </ListView>
+
         </StackPanel>
-        <UI:AdControl ApplicationId="f252196e-5191-43a0-bc7a-e41087fb2dc9" 
-                      AdUnitId="10067599" 
-                      Height="250" 
-                      Width="300"/>
-        <Button Content="Next Question" Click="HyperlinkButton_Click" Height="250" Width="300" HorizontalAlignment="Left"/>
-    </ListView>
+
+
+        <ListView Grid.Column="0" Background="#FF6600" >
+            <Button Click="Question1Click">Question1</Button>
+            <Button Click="Question2Click">Question2</Button>
+            <Button Click="Question3Click">Question3</Button>
+            <Button>Question4</Button>
+        </ListView>
+        <UserControl Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="1668,110,-579,0" VerticalAlignment="Top" Width="100"/>
+
+
+    </Grid>
+
 
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     </Grid>-->
+
 
 
 </Page>

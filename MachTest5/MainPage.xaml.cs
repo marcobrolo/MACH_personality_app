@@ -22,17 +22,79 @@ namespace MachTest5
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private String Question = "The best way to earn someone's respect is to be kind and honest.";
+        private List<String> QuestionList = new List<string>();
+        private List<String> QuestionAnswer = new List<string>();
+        private int QuestionCounter;
+        private static int MaxQuestionsCount = 3;
+
         public MainPage()
         {
+            QuestionCounter = 1;
+            QuestionList.Add("Most people are honest.");
+            QuestionList.Add("It is possible to be good in all respects.");
+            QuestionList.Add("It is hard to get ahead without cutting corners here and there.");
+
+            QuestionAnswer.Add("Null");
+            QuestionAnswer.Add("Null");
+            QuestionAnswer.Add("Null");
+
             this.InitializeComponent();
 
             this.NavigationCacheMode =
         Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        private void Question1Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Page2));
+            QuestionCounter = 1;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+
+        private void AgreeClick(object sender, RoutedEventArgs e)
+        {
+            QuestionAnswer[QuestionCounter - 1] = "Agree";
+        }
+
+        private void DisagreeClick(object sender, RoutedEventArgs e)
+        {
+            QuestionAnswer[QuestionCounter - 1] = "Disagree";
+        }
+
+        private void UndecidedClick(object sender, RoutedEventArgs e)
+        {
+            QuestionAnswer[QuestionCounter - 1] = "Undecided";
+        }
+
+        private void Question2Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 2;
+            QuestionBox.Text = QuestionList[QuestionCounter-1];
+        }
+
+        private void Question3Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 3;
+            QuestionBox.Text = QuestionList[QuestionCounter-1];
+        }
+
+        private void NextQuestionButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (QuestionCounter != MaxQuestionsCount)
+            {
+                QuestionCounter += 1;
+                QuestionBox.Text = QuestionList[QuestionCounter-1];
+            }
+            else if (NextQuestionButton.Content == "FINISH")
+            {
+                //End survey
+            }
+            
+        }
+
+        private void LastQuestionVisualSetup()
+        {
+            NextQuestionButton.Content = "FINISH";
         }
     }
 }
