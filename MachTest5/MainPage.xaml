@@ -118,12 +118,24 @@
         <StackPanel Grid.Column="1" Margin="0,0,0,0" Background="White" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False">
             <ListView Height="666" SelectionMode="None">
                 <TextBlock x:Name="QuestionBox" TextWrapping="Wrap" TextAlignment="Center" Text="Most people are honest." FontSize="48" Margin="0" Width="1182" Height="250" Foreground="Black" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" Padding="10,0"/>
-                <StackPanel Margin="450,0,0,0" Width="300" Height="250" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False">
-                    <RadioButton x:Name="AgreeButton" Click="AgreeClick" Content="Agree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
-                    <RadioButton x:Name="DisagreeButton" Click="DisagreeClick" Content="Disagree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
-                    <RadioButton x:Name="UndecidedButton" Click="UndecidedClick" Content="Undecided" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
-                </StackPanel>
-                <Button x:Name="NextQuestionButton" Margin="400,0,0,0" Content="Next Question" Click="NextQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D"/>
+                <Grid Height="269" Width="1185">
+                    <UI:AdControl ApplicationId="f252196e-5191-43a0-bc7a-e41087fb2dc9" 
+                      AdUnitId="10067599" 
+                      Height="250" 
+                      Width="300" Margin="795,19,90,0"/>
+
+                    <StackPanel IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Margin="0,0,395,0">
+                        <RadioButton x:Name="AgreeButton" Click="AgreeClick" Content="Agree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
+                        <RadioButton x:Name="DisagreeButton" Click="DisagreeClick" Content="Disagree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
+                        <RadioButton x:Name="UndecidedButton" Click="UndecidedClick" Content="Undecided" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Height="100" Width="1185">
+                    <Button x:Name="NextQuestionButton_Copy" Content="Previous Question" Click="PreviousQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D" Margin="247,4,0,-4"/>
+
+                    <Button x:Name="NextQuestionButton" Margin="647,4,0,-4" Content="Next Question" Click="NextQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D"/>
+                </Grid>
+
             </ListView>
 
         </StackPanel>

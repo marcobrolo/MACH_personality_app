@@ -26,7 +26,7 @@ namespace MachTest5
         private List<String> QuestionList = new List<string>();
         private List<String> QuestionAnswer = new List<string>();
         private int QuestionCounter;
-        private static int MaxQuestionsCount = 3;
+        private static int MaxQuestionsCount = 10;
 
         public MainPage()
         {
@@ -132,6 +132,20 @@ namespace MachTest5
                 //End survey
             }
             
+        }
+
+        private void PreviousQuestionButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (QuestionCounter != 1)
+            {
+                QuestionCounter -= 1;
+                QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            }
+            else if (NextQuestionButton.Content == "FINISH")
+            {
+                //End survey
+            }
+
         }
 
         private void LastQuestionVisualSetup()
