@@ -133,7 +133,13 @@
             <Button Click="Question1Click">Question1</Button>
             <Button Click="Question2Click">Question2</Button>
             <Button Click="Question3Click">Question3</Button>
-            <Button>Question4</Button>
+            <Button Click="Question4Click">Question4</Button>
+            <Button Click="Question5Click" Content="Question5"/>
+            <Button Click="Question6Click" Content="Question6"/>
+            <Button Click="Question7Click" Content="Question7"/>
+            <Button Click="Question8Click" Content="Question8"/>
+            <Button Click="Question9Click" Content="Question9"/>
+            <Button Click="Question10Click" Content="Question10"/>
         </ListView>
         <UserControl Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="1668,110,-579,0" VerticalAlignment="Top" Width="100"/>
 

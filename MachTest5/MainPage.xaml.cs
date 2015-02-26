@@ -34,6 +34,13 @@ namespace MachTest5
             QuestionList.Add("Most people are honest.");
             QuestionList.Add("It is possible to be good in all respects.");
             QuestionList.Add("It is hard to get ahead without cutting corners here and there.");
+            QuestionList.Add("The best way to earn someone's respect is to be kind and honest.");
+            QuestionList.Add("The best way to earn someone's loyalty is show him/her your power.");
+            QuestionList.Add("There are no absolute rights and wrongs. \"Right\" is what works.");
+            QuestionList.Add("A good president reads the polls to find out what people want and makes those things his/her policies.");
+            QuestionList.Add("Most people are extremely selfish.");
+            QuestionList.Add("A promise is a sacred trust.");
+            QuestionList.Add("Nice guys finish last.");
 
             QuestionAnswer.Add("Null");
             QuestionAnswer.Add("Null");
@@ -76,6 +83,41 @@ namespace MachTest5
         {
             QuestionCounter = 3;
             QuestionBox.Text = QuestionList[QuestionCounter-1];
+        }
+        private void Question4Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 4;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+        private void Question5Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 5;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+        private void Question6Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 6;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+        private void Question7Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 7;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+        private void Question8Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 8;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+        private void Question9Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 9;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+        }
+        private void Question10Click(object sender, RoutedEventArgs e)
+        {
+            QuestionCounter = 10;
+            QuestionBox.Text = QuestionList[QuestionCounter - 1];
         }
 
         private void NextQuestionButtonClick(object sender, RoutedEventArgs e)
