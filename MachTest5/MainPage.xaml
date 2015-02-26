@@ -116,8 +116,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="1" Margin="0,0,0,0" Background="White" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False">
-            <ListView Height="666">
-                <TextBlock x:Name="QuestionBox" TextWrapping="Wrap" TextAlignment="Center" Text="Most people are honest." FontSize="48" Margin="0" Width="1182" Height="250" Foreground="Black" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False"/>
+            <ListView Height="666" SelectionMode="None">
+                <TextBlock x:Name="QuestionBox" TextWrapping="Wrap" TextAlignment="Center" Text="Most people are honest." FontSize="48" Margin="0" Width="1182" Height="250" Foreground="Black" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" Padding="10,0"/>
                 <StackPanel Margin="450,0,0,0" Width="300" Height="250" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False">
                     <RadioButton x:Name="AgreeButton" Click="AgreeClick" Content="Agree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
                     <RadioButton x:Name="DisagreeButton" Click="DisagreeClick" Content="Disagree" Height="90" Foreground="#FF6A6A6A" FontSize="30" Margin="0,0,-209,0" Style="{StaticResource RadioButtonStyle1}"/>
@@ -129,7 +129,7 @@
         </StackPanel>
 
 
-        <ListView Grid.Column="0" Background="#FF6600" >
+        <ListView Grid.Column="0" Background="#FF6600" SelectionMode="None" >
             <Button Click="Question1Click">Question1</Button>
             <Button Click="Question2Click">Question2</Button>
             <Button Click="Question3Click">Question3</Button>
