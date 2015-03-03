@@ -131,7 +131,7 @@
                     </StackPanel>
                 </Grid>
                 <Grid Height="100" Width="1185">
-                    <Button x:Name="NextQuestionButton_Copy" Content="Previous Question" Click="PreviousQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D" Margin="247,4,0,-4"/>
+                    <Button x:Name="PreviousQuestionButton" Content="Previous Question" Click="PreviousQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D" Margin="247,4,0,-4"/>
 
                     <Button x:Name="NextQuestionButton" Margin="647,4,0,-4" Content="Next Question" Click="NextQuestionButtonClick" Height="100" Width="300" HorizontalAlignment="Left" BorderBrush="#FF6A6A6A" Foreground="#FF5D5D5D"/>
                 </Grid>
@@ -142,16 +142,16 @@
 
 
         <ListView Grid.Column="0" Background="#FF6600" SelectionMode="None" >
-            <Button Click="Question1Click">Question1</Button>
-            <Button Click="Question2Click">Question2</Button>
-            <Button Click="Question3Click">Question3</Button>
-            <Button Click="Question4Click">Question4</Button>
-            <Button Click="Question5Click" Content="Question5"/>
-            <Button Click="Question6Click" Content="Question6"/>
-            <Button Click="Question7Click" Content="Question7"/>
-            <Button Click="Question8Click" Content="Question8"/>
-            <Button Click="Question9Click" Content="Question9"/>
-            <Button Click="Question10Click" Content="Question10"/>
+            <Button x:Name="Question1QuickLink" Click="Question1Click">Question1</Button>
+            <Button x:Name="Question2QuickLink" Click="Question2Click">Question2</Button>
+            <Button x:Name="Question3QuickLink" Click="Question3Click">Question3</Button>
+            <Button x:Name="Question4QuickLink" Click="Question4Click">Question4</Button>
+            <Button x:Name="Question5QuickLink" Click="Question5Click" Content="Question5"/>
+            <Button x:Name="Question6QuickLink" Click="Question6Click" Content="Question6"/>
+            <Button x:Name="Question7QuickLink" Click="Question7Click" Content="Question7"/>
+            <Button x:Name="Question8QuickLink" Click="Question8Click" Content="Question8"/>
+            <Button x:Name="Question9QuickLink" Click="Question9Click" Content="Question9"/>
+            <Button x:Name="Question10QuickLink" Click="Question10Click" Content="Question10"/>
         </ListView>
         <UserControl Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="1668,110,-579,0" VerticalAlignment="Top" Width="100"/>
 
