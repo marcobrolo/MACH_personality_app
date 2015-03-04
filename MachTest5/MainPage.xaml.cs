@@ -65,7 +65,7 @@ namespace MachTest5
         private void Question1Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 1;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
 
@@ -87,56 +87,56 @@ namespace MachTest5
         private void Question2Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 2;
-            QuestionBox.Text = QuestionList[QuestionCounter-1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
 
         private void Question3Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 3;
-            QuestionBox.Text = QuestionList[QuestionCounter-1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question4Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 4;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question5Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 5;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question6Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 6;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question7Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 7;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question8Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 8;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question9Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 9;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
         }
         private void Question10Click(object sender, RoutedEventArgs e)
         {
             QuestionCounter = 10;
-            QuestionBox.Text = QuestionList[QuestionCounter - 1];
+            QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             UIUpdate();
 
         }
@@ -146,7 +146,7 @@ namespace MachTest5
             if (QuestionCounter != MaxQuestionsCount)
             {
                 QuestionCounter += 1;
-                QuestionBox.Text = QuestionList[QuestionCounter-1];
+                QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             }
             else if (QuestionCounter == MaxQuestionsCount && NextQuestionButton.Content.ToString() == "FINISH")
             {
@@ -163,7 +163,7 @@ namespace MachTest5
             if (QuestionCounter != 1)
             {
                 QuestionCounter -= 1;
-                QuestionBox.Text = QuestionList[QuestionCounter - 1];
+                QuestionBox.Text = QuestionCounter + ". " + QuestionList[QuestionCounter - 1];
             }
 
             UIUpdate();
@@ -287,7 +287,24 @@ namespace MachTest5
             DisableQuestionJumpBTN();
             DisableAnswerSelectionBTN();
             CalculateResultTotal();
-            QuestionBox.Text = TypeResult + ScoreTotal.ToString();
+            QuestionBox.Text = "You are " + TypeResult + "." + " Score: " + ScoreTotal.ToString();
+
+            switch (TypeResult)
+            {
+                case "Type A":
+                    QuestionBox.Text += "\nYou're not Machiavellian at all. You may be an idealist and optimistic about human nature. You know the difference between right and wrong, but is highly submissive. Winning is not the most important, and you carry a higher ethical standards.";
+                    break;
+                case "Type B":
+                    QuestionBox.Text += "\nYou are medium Machiavellian. You are less trustworthy of others and not as idealistic. You believe that being selfish can sometimes prevent one as being viewed as noble, important and admirable.";
+                    break;
+                case "Type C":
+                    QuestionBox.Text += "\nYou're very very Machiavellian. You may be a very hard-headed cynic, and do not trust people at all. You can be highly manipulative, and may exploit vulnerability in people. You are a best fit for the \'do whatever it takes\' kind of jobs.";
+                    break;
+                default:
+                    break;
+            }
+
+            QuestionBox.FontSize = 30;
         }
 
         /*
@@ -338,17 +355,17 @@ namespace MachTest5
          */ 
         private void FinalResult(int ScoreTotal)
         {
-            if (ScoreTotal <23)
+            if (ScoreTotal <=23)
             {
-                TypeResult = "TypeA";
+                TypeResult = "Type A";
             }
-            else if (ScoreTotal > 23 && ScoreTotal < 36)
+            else if (ScoreTotal > 23 && ScoreTotal <= 36)
             {
-                TypeResult = "TypeB";
+                TypeResult = "Type B";
             }
             else
             {
-                TypeResult = "TypeC";
+                TypeResult = "Type C";
             }
         }
 
